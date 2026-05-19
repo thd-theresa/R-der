@@ -165,7 +165,12 @@ if (contactForm) {
             }
             contactSection?.scrollIntoView({ behavior: "smooth" });
         } catch (error) {
-            alert(error.message || "Die Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es erneut.");
+            console.warn("AJAX-Versand fehlgeschlagen, fallback auf nativen Formularversand:", error);
+            try {
+                HTMLFormElement.prototype.submit.call(contactForm);
+            } catch (submitError) {
+                alert(submitError.message || "Die Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es erneut.");
+            }
         }
     });
 }
