@@ -109,44 +109,79 @@ function sendSwitch(event){
 /* Kontaktformular */
 const contactForm = document.getElementById("contactForm");
 if (contactForm) {
-    const contactAnchorId = "nav-reservations";
     const emailInput = document.getElementById("email");
     const replyToInput = document.getElementById("contact_replyto");
-    const nextInput = document.getElementById("contact_next");
+    const submitButton = document.getElementById("contactSubmit");
+    const contactStatus = document.getElementById("contactStatus");
     const contactStart = document.getElementById("contactStart");
     const contactSuccess = document.getElementById("contactSuccess");
-    const contactSection = document.getElementById(contactAnchorId);
+    const contactSection = document.getElementById("nav-reservations");
+    const actionUrl = new URL(contactForm.action, window.location.href);
+    actionUrl.pathname = `/ajax${actionUrl.pathname}`;
+    const ajaxAction = actionUrl.toString();
+
+    const setContactStatus = (text, type) => {
+        if (!contactStatus) {
+            return;
+        }
+
+        contactStatus.textContent = text;
+        contactStatus.classList.remove("contact-status-success", "contact-status-error");
+        if (type) {
+            contactStatus.classList.add(type);
+        }
+    };
 
     const showContactSuccess = () => {
         if (contactStart && contactSuccess) {
             contactStart.style.display = "none";
             contactSuccess.style.display = "block";
         }
+        setContactStatus("", null);
         contactSection?.scrollIntoView({ behavior: "smooth" });
     };
 
-    if (nextInput) {
-        const nextUrl = new URL(window.location.href);
-        nextUrl.searchParams.set("contact", "success");
-        nextUrl.hash = `#${contactAnchorId}`;
-        nextInput.value = nextUrl.toString();
-    }
+    contactForm.addEventListener("submit", async function (event) {
+        event.preventDefault();
 
-    const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.get("contact") === "success") {
-        showContactSuccess();
+        const emailValue = emailInput?.value.trim() || "";
+        if (replyToInput && emailValue) {
+            replyToInput.value = emailValue;
+        }
 
-        urlParams.delete("contact");
-        const cleanedSearch = urlParams.toString();
-        const cleanedUrl = `${window.location.pathname}${cleanedSearch ? `?${cleanedSearch}` : ""}${window.location.hash}`;
-        window.history.replaceState({}, "", cleanedUrl);
-    }
+        setContactStatus("Nachricht wird gesendet ...", null);
+        if (submitButton) {
+            submitButton.disabled = true;
+            submitButton.value = "Wird gesendet...";
+        }
 
-    contactForm.addEventListener("submit", function () {
-        if (emailInput && replyToInput) {
-            const emailValue = emailInput.value.trim();
-            if (emailValue) {
-                replyToInput.value = emailValue;
+        try {
+            const formData = new FormData(contactForm);
+            const response = await fetch(ajaxAction, {
+                method: "POST",
+                body: formData,
+                headers: {
+                    Accept: "application/json"
+                }
+            });
+            const responseContentType = response.headers.get("content-type") || "";
+            const result = responseContentType.includes("application/json")
+                ? await response.json()
+                : null;
+
+            if (!response.ok || !result?.success) {
+                throw new Error(`FormSubmit request failed (status ${response.status})`);
+            }
+
+            showContactSuccess();
+            contactForm.reset();
+        } catch (error) {
+            console.error("Kontaktformular konnte nicht gesendet werden:", error);
+            setContactStatus("⚠️ Fehler: Die Nachricht konnte gerade nicht gesendet werden. Bitte versuchen Sie es in Kürze erneut.", "contact-status-error");
+        } finally {
+            if (submitButton) {
+                submitButton.disabled = false;
+                submitButton.value = "Nachricht senden";
             }
         }
     });

@@ -805,6 +805,22 @@ input[type="submit"]:hover {
 	background-color: var(--red-dark);
 }
 
+input[type="submit"]:disabled {
+	opacity: 0.7;
+	cursor: not-allowed;
+}
+
+#contactStatus {
+	min-height: 1.5rem;
+	margin-top: 8px;
+	font-size: 0.95rem;
+	color: #e2e2e2;
+}
+
+.contact-status-error {
+	color: var(--red-primary);
+}
+
 .message {
 	display: none;
 	margin-top: 20px;
