@@ -131,7 +131,8 @@ if (contactForm) {
         let ajaxEndpoint = contactForm.action;
         try {
             const actionUrl = new URL(contactForm.action, window.location.href);
-            if (actionUrl.hostname === "formsubmit.co" && !actionUrl.pathname.startsWith("/ajax/")) {
+            const isFormSubmitHost = actionUrl.hostname === "formsubmit.co" || actionUrl.hostname === "www.formsubmit.co";
+            if (isFormSubmitHost && !actionUrl.pathname.startsWith("/ajax/")) {
                 actionUrl.pathname = `/ajax${actionUrl.pathname}`;
             }
             ajaxEndpoint = actionUrl.toString();
