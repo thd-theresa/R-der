@@ -664,7 +664,7 @@ a.totop{
 	padding: 10px 20px;
 	text-decoration: none;
 	margin: -1.66667em auto 0;
-	float right;
+	float: right;
 	color: #AE9A64;
 	text-align: right;
 }
