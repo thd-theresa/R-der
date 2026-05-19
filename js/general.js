@@ -173,6 +173,7 @@ if (contactForm) {
                 throw new Error(`FormSubmit request failed (status ${response.status})`);
             }
             if (result && Object.prototype.hasOwnProperty.call(result, "success")) {
+                // FormSubmit may return success as boolean or as string depending on endpoint behavior.
                 const isSuccess = result.success === true || result.success === "true";
                 if (!isSuccess) {
                     throw new Error("FormSubmit request returned success=false");
@@ -184,7 +185,7 @@ if (contactForm) {
         } catch (error) {
             console.error("Kontaktformular konnte nicht gesendet werden:", error);
             setContactStatus("⚠️ Fehler: Die Nachricht konnte gerade nicht gesendet werden. Bitte versuchen Sie es in Kürze erneut.", "contact-status-error");
-            if (!contactForm.dataset.fallbackSubmitted) {
+            if (error instanceof TypeError && !contactForm.dataset.fallbackSubmitted) {
                 contactForm.dataset.fallbackSubmitted = "true";
                 contactForm.submit();
                 return;
