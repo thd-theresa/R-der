@@ -112,6 +112,12 @@ if (contactForm) {
     contactForm.addEventListener("submit", async function (event) {
         event.preventDefault();
 
+        const emailInput = document.getElementById("email");
+        const replyToInput = document.getElementById("contactReplyTo");
+        if (emailInput && replyToInput) {
+            replyToInput.value = emailInput.value.trim();
+        }
+
         const formData = new FormData(contactForm);
 
         try {
