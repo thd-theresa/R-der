@@ -128,8 +128,12 @@ if (contactForm) {
 
         const formData = new FormData(contactForm);
 
+        const ajaxEndpoint = contactForm.action.includes("https://formsubmit.co/")
+            ? contactForm.action.replace("https://formsubmit.co/", "https://formsubmit.co/ajax/")
+            : contactForm.action;
+
         try {
-            const response = await fetch(contactForm.action, {
+            const response = await fetch(ajaxEndpoint, {
                 method: "POST",
                 body: formData,
                 headers: {
