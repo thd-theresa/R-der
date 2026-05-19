@@ -1,0 +1,815 @@
+* {
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+	background-color: #000;
+    color: #fff;
+	font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+	margin: 0;
+	padding: 0;
+}
+
+:root {
+  --red-primary: #D11A36;
+  --red-hover: #E53950;
+  --red-dark: #9F1F33;
+}
+
+h1{
+	color: #fff;
+	text-align: center;
+	font-size: 60px;
+	text-transform: uppercase;
+	font-family: 'Syne';
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+h1::after {
+  content: "";
+  display: block;
+  width: 88px;
+  height: 4px;
+  margin: 12px auto 0;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--red-primary), var(--red-hover));
+}
+
+h2{
+	color: var(--red-primary);
+	text-align: center;
+	font-size: 40px;
+}
+h3{
+	color: white;
+	text-align: center;
+	font-size: 27px;
+	margin-bottom: 2px;
+}
+h4{
+	color: white;
+	text-align: left;
+	font-size: 27px;
+	margin-bottom: 2px; 
+}
+
+button, input, textarea, select {
+  font-family: 'Inter', sans-serif;
+}
+
+
+
+
+/* FIRST VIEW - Hannah */
+#firstView {
+	position: relative;
+	width: 100%;
+	height: 100vh;
+	margin: 0;
+	overflow: hidden;
+}
+#firstView::after {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 120px;
+	background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
+	pointer-events: none;
+	z-index: 2;
+}
+#Vid1 {
+	width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    position: relative;
+    z-index: 1;
+}
+
+@media screen and (max-width: 768px) {
+	#Vid1 {
+		object-fit: cover;
+		height: 100vh;
+		margin: 0;
+		padding: 0;
+	}
+
+	#firstView::after {
+		height: 120px;
+	}
+}
+
+/* Overlay-Text für #firstView (unten links) */
+.firstview-overlay {
+  position: absolute;
+  left: 28px;
+  bottom: 28px;
+  z-index: 3; /* über ::after (z-index:2) */
+  color: #ffffff;
+  pointer-events: none; /* verhindert, dass das Overlay Scroll-/Klick-Interaktionen blockiert */
+  max-width: 60%;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.55);
+}
+
+/* H1 in Overlay (groß, aber responsiv) */
+.firstview-overlay h1 {
+  margin: 0;
+  font-family: 'Syne', sans-serif; /* du hast Syne bereits eingebunden */
+  font-weight: 800;
+  font-size: clamp(1.6rem, 3.2vw, 2.6rem);
+  line-height: 1.05;
+  text-transform: none; /* kein zwingendes Uppercase, entferne bei Bedarf */
+  letter-spacing: 0.01em;
+  color: #fff;
+}
+
+.firstview-overlay h1::after {
+  content: "";
+  display: block;
+  width: 88px;
+  height: 4px;
+  margin: 12px 0 0 0;  /* linksbündig statt zentriert */
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--red-primary), var(--red-hover));
+}
+
+/* Untertext (normal, weiß) */
+.firstview-overlay p {
+  margin: 8px 0 0 0;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.4;
+  opacity: 0.95;
+}
+
+/* Mobile: kleiner, mehr Abstand vom Rand */
+@media screen and (max-width: 768px) {
+  .firstview-overlay {
+    left: 16px;
+    bottom: 18px;
+    max-width: 88%;
+    text-align: left;
+  }
+  .firstview-overlay h1 {
+    text-align: left;
+    font-size: clamp(1.2rem, 5.2vw, 1.8rem);
+  }
+  .firstview-overlay p {
+    font-size: 0.95rem;
+    text-align: left;
+  }
+
+  .firstview-overlay h1::after {
+      margin: 12px 0 0 0;
+    }
+  }
+}
+
+/* Pfeil */
+.scroll-arrow {
+  display: inline-block;
+  margin-right: 8px;
+  font-size: 1.1em;
+  animation: bounceArrow 1.2s ease-in-out infinite;
+  color: #ffffff;
+  vertical-align: middle;
+}
+
+@keyframes bounceArrow {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 0.85;
+  }
+  50% {
+    transform: translateY(6px);
+    opacity: 1;
+  }
+}
+
+
+
+
+
+
+/* ÜBER UNS - Hannah*/
+#aboutUs {
+  max-width: 1280px;
+  margin: 0px auto 0px;
+  padding: 56px 40px;
+  border: none;
+  border-radius: 20px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.015));
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(3px);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 40px;
+  align-items: center;
+}
+
+.textAboutUs {
+  max-width: 860px;
+  font-size: clamp(1.02rem, 1.7vw, 1.18rem);
+  line-height: 1.85;
+  color: #e8e8e8;
+  text-align: left;
+}
+
+.textAboutUs b {
+  color: var(--red-primary);
+  font-weight: 700;
+}
+
+.imagesAboutUs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imageAboutUs {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.45);
+}
+
+@media screen and (max-width: 768px) {
+  #aboutUs {
+    margin: 30px 16px 0px;
+    padding: 30px 18px;
+  }
+
+   .about-grid {
+       grid-template-columns: 1fr;
+       gap: 24px;
+     }
+
+  .textAboutUs {
+    font-size: 1rem;
+    line-height: 1.7;
+    text-align: center;
+  }
+
+  .imageAboutUs {
+     max-width: 92%;
+     height: 260px;
+  }
+}
+
+
+
+
+
+/*LEISTUNGEN - Hannah
+generell*/
+#leistungen {
+  max-width: 1600px;
+  margin: 0px auto 60px;
+  padding: 40px 24px;
+}
+
+/*Überschrift
+#leistungen h1 {
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 34px;
+}*/
+
+/*Container für die Karten*/
+.leistungen-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: space-between;
+}
+
+/*einzelne Karte*/
+.leistung-card {
+  flex: 1 1 calc(20% - 16px); /* 5 Karten pro Reihe, mit 16px Abstand */
+  min-width: 190px; /* verhindert zu kleine Karten auf schmalen Bildschirmen */
+  background: rgba(135, 135, 135, 0.33); /* leichtes grau */
+  /*border: 1px solid rgba(198, 40, 62, 0.9); /* rote Umrandung*/
+  border-radius: 16px; /* abgerundete Ecken */
+  padding: 22px 16px; /* Innenabstand */
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.32); /* Schatten für Tiefe */
+  min-height: 190px;
+  box-sizing: border-box; /* sorgt dafür, dass Padding in der Breite/Höhe enthalten ist */
+
+  /* Flexbox für vertikale Anordnung von Überschrift und Text */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Überschrift in der Karte*/
+.leistung-card h3 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  color: #e7e7e7;
+  font-size: 1.35rem;
+  min-height: 2.6em; /* sorgt dafür, dass längere Titel mehr Platz bekommen */
+  overflow-wrap: anywhere; /* ermöglicht Zeilenumbruch bei langen Wörtern */
+  word-break: break-word; /* verhindert Überlaufen von Text */
+  font-weight: 700;
+}
+
+/* Text in der Karte*/
+.leistung-card p {
+  color: #e7e7e7;
+  line-height: 1.6;
+  margin: 0;
+  text-align: center;
+  margin-top: auto; /* schiebt den Text weiter nach unten */
+  font-size: 1.05rem;
+}
+
+/* Responsive Anpassungen */
+@media screen and (max-width: 1100px) {
+  .leistung-card {
+    flex: 1 1 calc(50% - 16px);
+  }
+}
+
+@media screen and (max-width: 700px) {
+  #leistungen {
+      padding: 24px 14px 50px;
+      margin: 40px auto 0px;
+  }
+
+  .leistungen-grid {
+      gap: 20px; /*Abstand zwischen den Karten*/
+  }
+
+  .leistung-card {
+      flex: 1 1 100%;
+      min-height: unset;
+      padding: 16px 14px;
+  }
+
+  .leistung-card h3 {
+      min-height: unset;
+      margin-bottom: 8px;
+      font-size: 1rem;
+  }
+
+  .leistung-card p {
+      line-height: 1.5;
+  }
+}
+
+
+
+
+
+
+
+/*GALERIE - Hannah*/
+#galerie {
+  max-width: 1300px;
+  margin: 60px auto 60px; /*Abstand über der Überschrift und unter der Galerie*/
+  padding: 20px 24px 40px;
+}
+
+#galerie h1 {
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+}
+
+.gallery-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.gallery-viewport {
+  width: 100%;
+  overflow: hidden;
+}
+
+.gallery-track {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 16px;
+  transition: transform 0.7s ease-in-out;
+  will-change: transform;
+}
+
+.gallery-image {
+  flex: 0 0 calc(33.333% - 11px);
+  height: 240px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.32);
+  flex-shrink: 0;
+  content-visibility: auto;
+}
+
+.gallery-arrow {
+  background: transparent;
+  color: #C6283E;
+  border: none;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s ease;
+  flex-shrink: 0;
+  z-index: 2;
+}
+
+.gallery-arrow:hover {
+  transform: scale(1.15);
+}
+
+@media screen and (max-width: 1100px) {
+  .gallery-image {
+    flex: 0 0 calc(50% - 8px);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #galerie {
+    padding: 24px 12px 60px;
+    margin: 20px auto 80px;
+  }
+
+  .gallery-image {
+    flex: 0 0 100%;
+    height: 200px;
+  }
+
+  .gallery-arrow {
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+  }
+}
+
+
+
+
+
+
+
+.dataProtection{
+	font-size: 23px;
+	margin: 30px 125px;
+	hyphens: auto;
+}
+
+.linkDataProtection{
+	color: black;
+	text-decoration: underline;
+}
+
+.linkDataProtection:hover{
+	color: blue;
+	text-decoration: none;
+}
+
+.listDataProtection{
+	list-style-type: disc;
+	line-height: normal;
+	padding: 0 40px;
+}
+
+.listItemDataProtection{
+	display: list-item;
+	text-align: start;
+	word-spacing: normal;
+}
+
+
+/*Hannah + Manuel
+Reservation Form Style and Buttons. 
+With "display: none" and javascript, the animation of switching contents is accomplished*/
+#contactStart{
+	text-align: center;
+	font-size: 23px;
+	margin: 100px;
+	padding: 40px;
+	border-color: #AE9A64;
+    border-width: 5px;
+    border-style: solid;
+}
+
+#reserveButton{
+	background-color: #ae9a64;
+	border: 2px solid #AE9A64;
+	color: white;
+	margin: 50px 0;
+	padding: 30px;
+	font-size: 27px;
+	border-radius: 10px;
+	transition-duration: 0.4s;
+}
+
+#reserveButton:hover{
+	background-color: white;
+	color: #ae9a64;
+	border: 2px solid #ae9a64;
+}
+
+#reservationDataCustomer{
+	display: none;
+	margin: 50px 100px;
+}
+
+#contactSuccess{
+	display: none;
+	text-align: center;
+	font-size: 23px;
+	margin: 100px;
+	padding: 40px;
+	border-color: #AE9A64;
+	border-width: 5px;
+	border-style: solid;
+}
+/* Theresa
+Footer, with contact, link to social media, opening hours and contact information, as well as link to the imprint and data protection, a button to get back to the top*/
+.footerContainer{
+	float: left;
+	width: 25.33%;
+	padding: 10px 4% 10px 4%;
+	text-align: left;
+	position: relative;
+}
+
+.footer{ 
+	background-color: #343a40;
+	color: white;
+}
+.container{
+	margin: 0 auto;
+	max-width: 1460px;
+	width: 100%;
+	padding: 0;
+}
+
+#footer{
+	border-top: 10px solid #AE9A64;
+}
+iframe{ /* google maps Karte*/
+	max-width:100%;
+}
+.fa{
+	padding: 20px;
+	font-size:30px;
+	width: 50px;
+	text-align: center;
+	text-decoration: none;
+	margin: 5px 2px;
+}
+
+.fa:hover{
+	opacity:0.7;
+}
+.fa-facebook{
+	background:transparent;
+	color: white;
+}
+.fa-instagram{
+	background: transparent;
+	color: white;
+}
+#footer div.container{
+	max-width: 1460px;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.footnav{ 
+	float: left;
+	width: 100%;
+	color: white;
+	text-align: center;
+}
+
+footer ul{
+	float: left;
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+ul{
+	line-height: 1.5em;
+	padding: 0 0 0 25px;
+}
+li{
+	display: inline;
+	text-align: -webkit-match-parent;
+	word-spacing: 50px;
+}
+
+a{
+	text-decoration: none;
+	text-align: center;
+	color: white;
+}
+footer ul li{ 
+	display: block;
+	float: left;
+	margin: 0;
+	padding: 0;
+}
+footer ul li a{
+	display: block;
+	padding: 10px 30px;
+	color: white;
+	float: left;
+}
+#copyright{
+	float: left;
+	width: 90%;
+	margin: 30px 0 0;
+	padding: 30px 5%;
+	position: relative;
+	color: white;
+	font-size: 0.9em;
+	text-align: center;
+}
+p{
+	margin: 10px 0 15px 0;
+	line-height:1.6em;
+}
+
+a.totop{
+	bottom: 0;
+	position: fixed;
+	right: 30px;
+	z-index: 9;
+	display: block;
+	font-family: 'icons';
+	font-size: 1.5em;
+	z-index: 30;
+	padding: 10px 20px;
+	text-decoration: none;
+	margin: -1.66667em auto 0;
+	float right;
+	color: #AE9A64;
+	text-align: right;
+}
+.imprint{ 
+	font-size:23px;
+	margin: 30px 125px;
+}
+.contenttext{
+	float: left;
+	width: 98%;
+	padding: 0;
+	margin: 0 1%;
+	position: relative;
+	z-index:2;
+}
+
+/*Manuel
+Basic modern style of the reservation form*/
+form {
+	background-color: #fff;
+	padding: 20px;
+	border-radius: 5px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#contactForm {
+	background-color: transparent;
+	box-shadow: none;
+}
+
+label {
+	display: block;
+	margin-bottom: 10px;
+	font-weight: bold;
+}
+
+input, textarea {
+	width: 98%;
+	padding: 10px;
+	margin-bottom: 10px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+}
+
+input[type="submit"] {
+	background-color: #AE9A64;
+	color: #fff;
+	border: none;
+	cursor: pointer;
+	padding: 10px 20px;
+	font-size: 16px;
+}
+
+input[type="submit"]:hover {
+	background-color: #343a40;
+}
+
+.message {
+	display: none;
+	margin-top: 20px;
+	padding: 10px;
+	background-color: #d4edda;
+	color: #155724;
+	border: 1px solid #c3e6cb;
+	border-radius: 3px;
+}
+
+
+
+/* Responsive Design for mobile view of website
+Überschriften, Footer (+ Listenelemente), Datenschutz, Reservierungsformular */
+@media screen and (max-width: 768px) {
+	h1 {
+		font-size: 38px;
+	}
+	h2{
+		font-size: 27px;
+	}
+	h3{
+		font-size: 20px;
+	}
+	h4{
+		font-size: 20px;
+	}
+
+	li{
+		word-spacing: 25px;
+	}
+	
+	p{
+		margin: 5px 0 7.5px 0;
+		line-height: 0.8em;
+	}
+
+	.dataProtection {
+		font-size: 19px;
+		margin: 20px;
+	}
+	
+	#contactStart {
+	   	font-size: 19px;
+		margin: 25px 20px;
+		padding: 20px;
+	}
+	
+	#reserveButton {
+		font-size: 23px;
+		padding: 15px;
+		margin: 25px;
+	}
+	
+	#reservationDataCustomer {
+		margin: 25px;
+	}
+	
+	#contactSuccess {
+		font-size: 19px;
+		margin: 25px 20px;
+		padding: 20px;
+	}
+	
+	.footerContainer{
+		padding: 10px 4%;
+		width: 42%;
+	}
+	
+	.container{
+		max-width:730px;
+	}
+	
+	.fa{
+		padding: 10px;
+		font-size: 15px;
+		width: 25px;
+		margin: 2,5px 1px;
+	}
+	
+	#footer div.container{
+		max-width: 730px;
+	}
+
+	a.totop{
+		right: 15px;
+		font-size:  0.75em;
+		z-index: 15;
+	}
+	
+}
