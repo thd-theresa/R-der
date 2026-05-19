@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Elysian</title>
+		<link rel="icon" href="./images/Logo.png" sizes="any">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link rel="stylesheet" type="text/css" href="css/nav-impressum.css">
+		<script src="js/general.js" defer></script>
+	</head>
+	<body>
+
+	<!-- Sophie: navigation -->
+	<div class="topnav">
+  	<nav id="topnav">
+        	<nav id="big"> <!--navigation when the screen is big -->
+			<a href="index.html#aboutUs" class="nav-link">Über uns</a>
+			<a href="index.html#food" class="nav-link">Speisekarte</a>
+
+			<a href="index.html#start" class="nav-link">
+				<div class="logo-container">
+					<img src="./images/logo_transparent.png" alt="Elysian Logo">
+				</div>
+			</a>
+
+			<a href="index.html#nav-reservations" class="nav-link">Kontaktformular</a>
+			<a href="index.html#nav-footer" class="nav-link">Kontakt</a>
+
+       		</nav>		
+        	<nav id="small"> <!--navigation when the screen is small -->
+            		<div class="hamburger" id="hamburger"> <!--hamburgermenu (three lines) -->
+               			<div></div>
+               			<div></div>
+                		<div></div>
+            		</div>
+            
+            		<div class="menu-overlay" id="menu-overlay"></div>
+            
+            		<a href="index.html#start" class="nav-link">
+               			<div class="logo-box">
+                    			<img src="./images/logo_transparent.png" alt="Elysian Logo">
+               			</div>
+            		</a>
+                
+            		<ul class="menu" id="menu">
+                		<li class="close-btn" id="close-menu">✕</li>
+                		<li><a href="index.html#aboutUs" class="nav-link">Über uns</a></li>
+                		<li><a href="index.html#food" class="nav-link">Speisekarte</a></li>
+                		<li><a href="index.html#nav-reservations" class="nav-link">Kontaktformular</a></li>
+                		<li><a href="index.html#nav-footer" class="nav-link">Kontakt</a></li>
+            		</ul>
+        	</nav>	
+   	</nav>
+	</div>
+	
+	<!-- Theresa: Imprint -->
+	<section class= "imprint">
+		<br><br><br>
+    		<h1>Impressum</h1>
+		<br><br><br>
+		
+			<p class= "text"><b>Angaben gemäß §5 TMG:</b> <br> Elysian<br> Elysianweg 1 <br> 99999 Elysian<br> </p>
+			<p class= "text"><b>Vertreten durch: </b><br> Ella Elysian</p>
+			<p class= "text"> <b>Kontakt:</b> <br> Telefon: 0123/45678<br> E-Mail: elysium@elysium.de</p>
+			<p class= "text"><b>Verantwortlich für den Inhalt nach §55 Abs. 2 RstV: </b><br> Elysium<br> Elysiumweg 1 <br> 99999 Elysian </p>
+			<p class= "text"> <b> Haftungsausschluss:</b><br> Wir haben sämtliche Anstrengungen unternommen, um die Richtigkeit der auf dieser Website enthaltenen Informationen zu gewährleisten.<br> Trotz sorgfältiger Kontrolle ist jegliche Haftung im Zusammenhang mit der Nutzung der auf dieser Website enthaltenen Informationen und Links oder dem Vertrauen auf deren Richtigkeit ausgeschlossen.</p>
+			<p class="text"> <b> Copyright: </b><br> Auf diesen Seiten enthaltene Daten (Texte, Bilder, Grafiken und sonstige Dateien) unterliegen dem Urheberrecht. Alle Rechte, auch die der Wiedergabe, der Vervielfältigung und der Verbreitung (auch teilweise), bleiben vorbehalten.</p><br><br><br><br>
+		
+	</section>
+
+<!-- Theresa: Footer -->
+		<div id="footer" class = "footer">
+		<section id="nav-footer"> 
+			<div class = "container">
+				 <!-- First Footer Section - Contact Information and social media-->
+				<div class = "footerContainer" data-icon: &#9990>
+					<br> <b><h4>Kontakt</h4><br> Tel.: 0123/45678<br> E-Mail: Elysian@elysian.de </b> <br> <br>
+					<h4>Social Media</h4>
+					<div class= " social">
+					<a href = "https://de-de.facebook.com/"  class="fa fa-facebook"> <img src="./images/fb.png"></a>
+					<a href = "https://www.instagram.com/"  class="fa fa-instagram"> <img src="./images/insta 50.png"></a>
+					</div>
+				</div>
+				 <!-- Second Footer Section - Opening Hours -->
+				<div class= "footerContainer">
+					<br><b><h4>Öffungszeiten</h4><br>Montag: Ruhetag<br> Dienstag: Ruhetag<br> Mittwoch: 17.00 Uhr - 22.00 Uhr<br> Donnerstag: 17.00 Uhr - 22.00 Uhr
+					<br> Freitag: 17.00 Uhr - 00.00 Uhr<br> Samstag: 11.00 Uhr - 00.00 Uhr<br> Sonntag: 11.00 Uhr - 22.00 Uhr</b>
+				</div>
+				 <!-- Third Footer Section - Address and Map -->
+				<div class = "footerContainer">
+					<br><b> <h4>Anfahrt</h4><br> Elysianweg 1 <br> 99999 Elysian<br></b>
+					<div id = "map">
+						<br>
+						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2626.503516622399!2d12.952012776584207!3d48.8295336713283!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4775119871ad94ef%3A0x64e9bac6691ed449!2sTechnische%20Hochschule%20Deggendorf!5e0!3m2!1sde!2sde!4v1736242440107!5m2!1sde!2sde" width="200" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+						
+					</div>
+				</div>
+				<!-- Footer Navigation - Imprind and data protection Links -->
+
+				<div class = "footnav">
+					<ul>
+						<li>
+							<a href = "imprint.html" title= "Impressum">Impressum</a>
+						</li>
+						<li>
+							<a href= "dataProtection.html">|    Datenschutz</a>
+						</li>
+					</ul>
+				</div>
+				<!-- Copyright and "Back to Top" Button -->
+				<p id= "copyright">
+					<span class = "copy">Copyright Ⓒ Elysian</span>
+					 | by MSHT
+				</p>
+			<a class= "totop" title="Nach oben" href= "https://thd-manuel.github.io/elysian/" style = " display: block; "  >▲</a>
+			</div>
+		</section>
+		</div>
+  </body>
+</html>
