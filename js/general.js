@@ -128,9 +128,16 @@ if (contactForm) {
 
         const formData = new FormData(contactForm);
 
-        const ajaxEndpoint = contactForm.action.includes("https://formsubmit.co/")
-            ? contactForm.action.replace("https://formsubmit.co/", "https://formsubmit.co/ajax/")
-            : contactForm.action;
+        let ajaxEndpoint = contactForm.action;
+        try {
+            const actionUrl = new URL(contactForm.action, window.location.href);
+            if (actionUrl.hostname === "formsubmit.co" && !actionUrl.pathname.startsWith("/ajax/")) {
+                actionUrl.pathname = `/ajax${actionUrl.pathname}`;
+            }
+            ajaxEndpoint = actionUrl.toString();
+        } catch (_) {
+            ajaxEndpoint = contactForm.action;
+        }
 
         try {
             const response = await fetch(ajaxEndpoint, {
