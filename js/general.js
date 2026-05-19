@@ -128,8 +128,21 @@ if (contactForm) {
 
         const formData = new FormData(contactForm);
 
+        let ajaxEndpoint = contactForm.action;
         try {
-            const response = await fetch(contactForm.action, {
+            const actionUrl = new URL(contactForm.action, window.location.href);
+            const isFormSubmitHost = actionUrl.hostname === "formsubmit.co" || actionUrl.hostname === "www.formsubmit.co";
+            if (isFormSubmitHost && !actionUrl.pathname.startsWith("/ajax/")) {
+                actionUrl.pathname = `/ajax${actionUrl.pathname}`;
+            }
+            ajaxEndpoint = actionUrl.toString();
+        } catch (error) {
+            console.warn("Ungültige Formular-Action-URL:", error);
+            ajaxEndpoint = contactForm.action;
+        }
+
+        try {
+            const response = await fetch(ajaxEndpoint, {
                 method: "POST",
                 body: formData,
                 headers: {
