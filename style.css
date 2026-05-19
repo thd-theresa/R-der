@@ -503,7 +503,7 @@ With "display: none" and javascript, the animation of switching contents is acco
 	font-size: 23px;
 	margin: 100px;
 	padding: 40px;
-	border-color: #AE9A64;
+	border-color: var(--red-primary);
     border-width: 5px;
     border-style: solid;
 }
@@ -536,7 +536,7 @@ With "display: none" and javascript, the animation of switching contents is acco
 	font-size: 23px;
 	margin: 100px;
 	padding: 40px;
-	border-color: #AE9A64;
+	border-color: var(--red-primary);
 	border-width: 5px;
 	border-style: solid;
 }
@@ -551,7 +551,7 @@ Footer, with contact, link to social media, opening hours and contact informatio
 }
 
 .footer{ 
-	background-color: #343a40;
+	background-color: #000;
 	color: white;
 }
 .container{
@@ -562,7 +562,7 @@ Footer, with contact, link to social media, opening hours and contact informatio
 }
 
 #footer{
-	border-top: 10px solid #AE9A64;
+	border-top: 10px solid var(--red-primary);
 }
 iframe{ /* google maps Karte*/
 	max-width:100%;
@@ -665,7 +665,7 @@ a.totop{
 	text-decoration: none;
 	margin: -1.66667em auto 0;
 	float right;
-	color: #AE9A64;
+	color: var(--red-primary);
 	text-align: right;
 }
 .imprint{ 
@@ -709,8 +709,15 @@ input, textarea {
 	border-radius: 3px;
 }
 
-input[type="submit"] {
-	background-color: #AE9A64;
+#contactForm input:not([type="submit"]),
+#contactForm textarea {
+	background-color: #3a3a3a;
+	border-color: #5a5a5a;
+	color: #fff;
+}
+
+#contactForm input[type="submit"] {
+	background-color: var(--red-primary);
 	color: #fff;
 	border: none;
 	cursor: pointer;
@@ -718,8 +725,8 @@ input[type="submit"] {
 	font-size: 16px;
 }
 
-input[type="submit"]:hover {
-	background-color: #343a40;
+#contactForm input[type="submit"]:hover {
+	background-color: var(--red-dark);
 }
 
 .message {
