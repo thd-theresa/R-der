@@ -164,10 +164,13 @@ if (contactForm) {
                     Accept: "application/json"
                 }
             });
-            const result = await response.json();
+            const responseContentType = response.headers.get("content-type") || "";
+            const result = responseContentType.includes("application/json")
+                ? await response.json()
+                : null;
 
             if (!response.ok || !result?.success) {
-                throw new Error("FormSubmit request failed");
+                throw new Error(`FormSubmit request failed (status ${response.status})`);
             }
 
             showContactSuccess();
