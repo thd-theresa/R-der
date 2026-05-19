@@ -109,13 +109,13 @@ function sendSwitch(event){
 /* Kontaktformular */
 const contactForm = document.getElementById("contactForm");
 if (contactForm) {
-    const contactSectionId = "nav-reservations";
+    const contactAnchorId = "nav-reservations";
     const emailInput = document.getElementById("email");
     const replyToInput = document.getElementById("contact_replyto");
     const nextInput = document.getElementById("contact_next");
     const contactStart = document.getElementById("contactStart");
     const contactSuccess = document.getElementById("contactSuccess");
-    const contactSection = document.getElementById(contactSectionId);
+    const contactSection = document.getElementById(contactAnchorId);
 
     const showContactSuccess = () => {
         if (contactStart && contactSuccess) {
@@ -128,7 +128,7 @@ if (contactForm) {
     if (nextInput) {
         const nextUrl = new URL(window.location.href);
         nextUrl.searchParams.set("contact", "success");
-        nextUrl.hash = contactSectionId;
+        nextUrl.hash = `#${contactAnchorId}`;
         nextInput.value = nextUrl.toString();
     }
 
