@@ -164,7 +164,7 @@ if (contactForm) {
             });
             const result = await response.json().catch(() => ({}));
 
-            if (!response.ok || result?.success === "false") {
+            if (!response.ok || result?.success === false || result?.success === "false") {
                 throw new Error("FormSubmit request failed");
             }
 
