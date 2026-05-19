@@ -116,7 +116,9 @@ if (contactForm) {
     const contactStart = document.getElementById("contactStart");
     const contactSuccess = document.getElementById("contactSuccess");
     const contactSection = document.getElementById("nav-reservations");
-    const ajaxAction = contactForm.action.replace("https://formsubmit.co/", "https://formsubmit.co/ajax/");
+    const actionUrl = new URL(contactForm.action, window.location.href);
+    actionUrl.pathname = `/ajax${actionUrl.pathname}`;
+    const ajaxAction = actionUrl.toString();
 
     const setContactStatus = (text, type) => {
         if (!contactStatus) {
@@ -164,7 +166,7 @@ if (contactForm) {
             });
             const result = await response.json();
 
-            if (!response.ok || (result?.success !== true && result?.success !== "true")) {
+            if (!response.ok || !result?.success) {
                 throw new Error("FormSubmit request failed");
             }
 
@@ -172,7 +174,7 @@ if (contactForm) {
             contactForm.reset();
         } catch (error) {
             console.error("Kontaktformular konnte nicht gesendet werden:", error);
-            setContactStatus("Die Nachricht konnte gerade nicht gesendet werden. Bitte versuchen Sie es in Kürze erneut.", "contact-status-error");
+            setContactStatus("⚠️ Fehler: Die Nachricht konnte gerade nicht gesendet werden. Bitte versuchen Sie es in Kürze erneut.", "contact-status-error");
         } finally {
             if (submitButton) {
                 submitButton.disabled = false;
