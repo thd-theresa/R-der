@@ -112,6 +112,20 @@ if (contactForm) {
     contactForm.addEventListener("submit", async function (event) {
         event.preventDefault();
 
+        if (!contactForm.checkValidity()) {
+            contactForm.reportValidity();
+            return;
+        }
+
+        const emailInput = document.getElementById("email");
+        const replyToInput = document.getElementById("contact_replyto");
+        if (emailInput && replyToInput) {
+            const emailValue = emailInput.value.trim();
+            if (emailValue) {
+                replyToInput.value = emailValue;
+            }
+        }
+
         const formData = new FormData(contactForm);
 
         try {
