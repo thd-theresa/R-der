@@ -137,6 +137,7 @@ if (contactForm) {
             contactStart.style.display = "none";
             contactSuccess.style.display = "block";
         }
+        delete contactForm.dataset.fallbackSubmitted;
         setContactStatus("", null);
         contactSection?.scrollIntoView({ behavior: "smooth" });
     };
@@ -185,7 +186,11 @@ if (contactForm) {
         } catch (error) {
             console.error("Kontaktformular konnte nicht gesendet werden:", error);
             setContactStatus("⚠️ Fehler: Die Nachricht konnte gerade nicht gesendet werden. Bitte versuchen Sie es in Kürze erneut.", "contact-status-error");
-            if (error instanceof TypeError && !contactForm.dataset.fallbackSubmitted) {
+            const isFetchFailure =
+                error instanceof TypeError ||
+                error?.name === "AbortError" ||
+                error?.name === "NetworkError";
+            if (isFetchFailure && !contactForm.dataset.fallbackSubmitted) {
                 contactForm.dataset.fallbackSubmitted = "true";
                 contactForm.submit();
                 return;
