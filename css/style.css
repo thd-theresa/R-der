@@ -805,6 +805,26 @@ input[type="submit"]:hover {
 	background-color: var(--red-dark);
 }
 
+input[type="submit"]:disabled {
+	opacity: 0.7;
+	cursor: not-allowed;
+}
+
+#contactStatus {
+	min-height: 1.5em;
+	margin-top: 8px;
+	font-size: 0.95rem;
+	color: #d11a36;
+}
+
+.contact-status-success {
+	color: #1f8f3a;
+}
+
+.contact-status-error {
+	color: #d11a36;
+}
+
 .message {
 	display: none;
 	margin-top: 20px;

@@ -109,44 +109,73 @@ function sendSwitch(event){
 /* Kontaktformular */
 const contactForm = document.getElementById("contactForm");
 if (contactForm) {
-    const contactAnchorId = "nav-reservations";
     const emailInput = document.getElementById("email");
     const replyToInput = document.getElementById("contact_replyto");
-    const nextInput = document.getElementById("contact_next");
+    const submitButton = document.getElementById("contactSubmit");
+    const contactStatus = document.getElementById("contactStatus");
     const contactStart = document.getElementById("contactStart");
     const contactSuccess = document.getElementById("contactSuccess");
-    const contactSection = document.getElementById(contactAnchorId);
+    const contactSection = document.getElementById("nav-reservations");
+    const ajaxAction = contactForm.action.replace("https://formsubmit.co/", "https://formsubmit.co/ajax/");
+
+    const setContactStatus = (text, type) => {
+        if (!contactStatus) {
+            return;
+        }
+
+        contactStatus.textContent = text;
+        contactStatus.classList.remove("contact-status-success", "contact-status-error");
+        if (type) {
+            contactStatus.classList.add(type);
+        }
+    };
 
     const showContactSuccess = () => {
         if (contactStart && contactSuccess) {
             contactStart.style.display = "none";
             contactSuccess.style.display = "block";
         }
+        setContactStatus("", null);
         contactSection?.scrollIntoView({ behavior: "smooth" });
     };
 
-    if (nextInput) {
-        const nextUrl = new URL(window.location.href);
-        nextUrl.searchParams.set("contact", "success");
-        nextUrl.hash = `#${contactAnchorId}`;
-        nextInput.value = nextUrl.toString();
-    }
+    contactForm.addEventListener("submit", async function (event) {
+        event.preventDefault();
 
-    const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.get("contact") === "success") {
-        showContactSuccess();
+        const emailValue = emailInput?.value.trim() || "";
+        if (replyToInput && emailValue) {
+            replyToInput.value = emailValue;
+        }
 
-        urlParams.delete("contact");
-        const cleanedSearch = urlParams.toString();
-        const cleanedUrl = `${window.location.pathname}${cleanedSearch ? `?${cleanedSearch}` : ""}${window.location.hash}`;
-        window.history.replaceState({}, "", cleanedUrl);
-    }
+        setContactStatus("Nachricht wird gesendet ...", null);
+        if (submitButton) {
+            submitButton.disabled = true;
+            submitButton.value = "Wird gesendet...";
+        }
 
-    contactForm.addEventListener("submit", function () {
-        if (emailInput && replyToInput) {
-            const emailValue = emailInput.value.trim();
-            if (emailValue) {
-                replyToInput.value = emailValue;
+        try {
+            const formData = new FormData(contactForm);
+            const response = await fetch(ajaxAction, {
+                method: "POST",
+                body: formData,
+                headers: {
+                    Accept: "application/json"
+                }
+            });
+            const result = await response.json().catch(() => ({}));
+
+            if (!response.ok || result?.success === "false") {
+                throw new Error("FormSubmit request failed");
+            }
+
+            showContactSuccess();
+            contactForm.reset();
+        } catch (error) {
+            setContactStatus("Die Nachricht konnte gerade nicht gesendet werden. Bitte versuchen Sie es in Kürze erneut.", "contact-status-error");
+        } finally {
+            if (submitButton) {
+                submitButton.disabled = false;
+                submitButton.value = "Nachricht senden";
             }
         }
     });
