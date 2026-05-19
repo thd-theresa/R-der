@@ -135,7 +135,8 @@ if (contactForm) {
                 actionUrl.pathname = `/ajax${actionUrl.pathname}`;
             }
             ajaxEndpoint = actionUrl.toString();
-        } catch (_) {
+        } catch (error) {
+            console.warn("Ungültige Formular-Action-URL:", error);
             ajaxEndpoint = contactForm.action;
         }
 
