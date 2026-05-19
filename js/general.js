@@ -109,67 +109,43 @@ function sendSwitch(event){
 /* Kontaktformular */
 const contactForm = document.getElementById("contactForm");
 if (contactForm) {
-    contactForm.addEventListener("submit", async function (event) {
-        event.preventDefault();
+    const emailInput = document.getElementById("email");
+    const replyToInput = document.getElementById("contact_replyto");
+    const nextInput = document.getElementById("contact_next");
+    const contactStart = document.getElementById("contactStart");
+    const contactSuccess = document.getElementById("contactSuccess");
+    const contactSection = document.getElementById("nav-reservations");
 
-        if (!contactForm.checkValidity()) {
-            contactForm.reportValidity();
-            return;
+    const showContactSuccess = () => {
+        if (contactStart && contactSuccess) {
+            contactStart.style.display = "none";
+            contactSuccess.style.display = "block";
         }
+        contactSection?.scrollIntoView({ behavior: "smooth" });
+    };
 
-        const emailInput = document.getElementById("email");
-        const replyToInput = document.getElementById("contact_replyto");
+    if (nextInput) {
+        const nextUrl = new URL(window.location.href);
+        nextUrl.searchParams.set("contact", "success");
+        nextUrl.hash = "nav-reservations";
+        nextInput.value = nextUrl.toString();
+    }
+
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get("contact") === "success") {
+        showContactSuccess();
+
+        urlParams.delete("contact");
+        const cleanedSearch = urlParams.toString();
+        const cleanedUrl = `${window.location.pathname}${cleanedSearch ? `?${cleanedSearch}` : ""}${window.location.hash}`;
+        window.history.replaceState({}, "", cleanedUrl);
+    }
+
+    contactForm.addEventListener("submit", function () {
         if (emailInput && replyToInput) {
             const emailValue = emailInput.value.trim();
             if (emailValue) {
                 replyToInput.value = emailValue;
-            }
-        }
-
-        const formData = new FormData(contactForm);
-
-        let ajaxEndpoint = contactForm.action;
-        try {
-            const actionUrl = new URL(contactForm.action, window.location.href);
-            const isFormSubmitHost = actionUrl.hostname === "formsubmit.co" || actionUrl.hostname === "www.formsubmit.co";
-            if (isFormSubmitHost && !actionUrl.pathname.startsWith("/ajax/")) {
-                actionUrl.pathname = `/ajax${actionUrl.pathname}`;
-            }
-            ajaxEndpoint = actionUrl.toString();
-        } catch (error) {
-            console.warn("Ungültige Formular-Action-URL:", error);
-            ajaxEndpoint = contactForm.action;
-        }
-
-        try {
-            const response = await fetch(ajaxEndpoint, {
-                method: "POST",
-                body: formData,
-                headers: {
-                    Accept: "application/json"
-                }
-            });
-
-            if (!response.ok) {
-                throw new Error(`Senden fehlgeschlagen: HTTP ${response.status}`);
-            }
-
-            contactForm.reset();
-            const contactStart = document.getElementById("contactStart");
-            const contactSuccess = document.getElementById("contactSuccess");
-            const contactSection = document.getElementById("nav-reservations");
-
-            if (contactStart && contactSuccess) {
-                contactStart.style.display = "none";
-                contactSuccess.style.display = "block";
-            }
-            contactSection?.scrollIntoView({ behavior: "smooth" });
-        } catch (error) {
-            console.warn("AJAX-Versand fehlgeschlagen, Fallback auf nativen Formularversand:", error);
-            try {
-                contactForm.submit();
-            } catch (submitError) {
-                alert(submitError.message || "Die Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es erneut.");
             }
         }
     });
