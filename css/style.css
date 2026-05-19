@@ -880,14 +880,26 @@ input[type="submit"]:hover {
 	}
 	
 	.fa{
-		padding: 10px;
+		padding: 8px;
 		font-size: 15px;
-		width: 25px;
-		margin: 2,5px 1px;
+		width: 34px;
+		height: 34px;
+		margin: 2.5px 1px;
 	}
 	
 	#footer div.container{
 		max-width: 730px;
+		padding: 18px 14px 10px;
+		gap: 12px;
+	}
+
+	#footer h4 {
+		font-size: 20px;
+	}
+
+	#footer .footnav a {
+		padding: 7px 14px;
+		font-size: 0.95rem;
 	}
 
 	a.totop{
