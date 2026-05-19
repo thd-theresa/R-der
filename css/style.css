@@ -811,7 +811,7 @@ input[type="submit"]:disabled {
 }
 
 #contactStatus {
-	min-height: 1.5em;
+	min-height: 1.5rem;
 	margin-top: 8px;
 	font-size: 0.95rem;
 	color: #e2e2e2;

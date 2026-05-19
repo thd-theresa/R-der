@@ -162,9 +162,9 @@ if (contactForm) {
                     Accept: "application/json"
                 }
             });
-            const result = await response.json().catch(() => ({}));
+            const result = await response.json();
 
-            if (!response.ok || result?.success === false || result?.success === "false") {
+            if (!response.ok || (result?.success !== true && result?.success !== "true")) {
                 throw new Error("FormSubmit request failed");
             }
 
