@@ -16,6 +16,10 @@ body {
   --red-primary: #D11A36;
   --red-hover: #E53950;
   --red-dark: #9F1F33;
+  --black: #000;
+  --text-light: #fff;
+  --gray-input: #3a3a3a;
+  --gray-input-border: #5a5a5a;
 }
 
 h1{
@@ -551,7 +555,7 @@ Footer, with contact, link to social media, opening hours and contact informatio
 }
 
 .footer{ 
-	background-color: #000;
+	background-color: var(--black);
 	color: white;
 }
 .container{
@@ -711,9 +715,9 @@ input, textarea {
 
 #contactForm input:not([type="submit"]),
 #contactForm textarea {
-	background-color: #3a3a3a;
-	border-color: #5a5a5a;
-	color: #fff;
+	background-color: var(--gray-input);
+	border-color: var(--gray-input-border);
+	color: var(--text-light);
 }
 
 #contactForm input[type="submit"] {
