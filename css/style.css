@@ -817,10 +817,6 @@ input[type="submit"]:disabled {
 	color: #e2e2e2;
 }
 
-.contact-status-success {
-	color: #1f8f3a;
-}
-
 .contact-status-error {
 	color: #d11a36;
 }

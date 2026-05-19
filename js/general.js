@@ -171,6 +171,7 @@ if (contactForm) {
             showContactSuccess();
             contactForm.reset();
         } catch (error) {
+            console.error("Kontaktformular konnte nicht gesendet werden:", error);
             setContactStatus("Die Nachricht konnte gerade nicht gesendet werden. Bitte versuchen Sie es in Kürze erneut.", "contact-status-error");
         } finally {
             if (submitButton) {
