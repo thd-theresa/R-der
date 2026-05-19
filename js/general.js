@@ -120,7 +120,10 @@ if (contactForm) {
         const emailInput = document.getElementById("email");
         const replyToInput = document.getElementById("contact_replyto");
         if (emailInput && replyToInput) {
-            replyToInput.value = emailInput.value.trim();
+            const emailValue = emailInput.value.trim();
+            if (emailValue) {
+                replyToInput.value = emailValue;
+            }
         }
 
         const formData = new FormData(contactForm);
