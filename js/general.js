@@ -115,7 +115,7 @@ if (contactForm) {
     const contactStatus = document.getElementById("contactStatus");
     const contactStart = document.getElementById("contactStart");
     const contactSuccess = document.getElementById("contactSuccess");
-    const contactSection = document.getElementById("nav-reservations");
+    const contactSection = document.getElementById("contact-section") || document.getElementById("nav-reservations");
     const actionUrl = new URL(contactForm.action, window.location.href);
     actionUrl.pathname = `/ajax${actionUrl.pathname}`;
     const ajaxAction = actionUrl.toString();
