@@ -198,10 +198,46 @@ button, input, textarea, select {
 	transform: scale(1.04);
 }
 
+.contact-teaser-section {
+	padding: 40px 20px 70px;
+}
+
+.contact-teaser-box {
+	max-width: 900px;
+	margin: 0 auto;
+	padding: 36px 28px;
+	text-align: center;
+	border: 3px solid var(--red-primary);
+	border-radius: 20px;
+	background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.015));
+	box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+.contact-teaser-box p {
+	font-size: 1.1rem;
+	color: #e8e8e8;
+	margin: 14px 0 24px;
+	line-height: 1.6;
+}
+
 @media screen and (max-width: 768px) {
 	.btn-contact {
 		font-size: 0.95rem;
 		padding: 12px 26px;
+	}
+
+	.contact-teaser-section {
+		padding: 24px 14px 50px;
+	}
+
+	.contact-teaser-box {
+		padding: 24px 16px;
+	}
+
+	.contact-teaser-box p {
+		font-size: 1rem;
+		margin: 12px 0 20px;
+		line-height: 1.5;
 	}
 }
 
@@ -663,6 +699,14 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
+	background-color: var(--red-hover);
+}
+
+#contactSubmit {
+	background-color: var(--red-primary);
+}
+
+#contactSubmit:hover {
 	background-color: var(--red-hover);
 }
 
