@@ -183,25 +183,6 @@ footer ul li a{
 	border-top: 1px solid rgba(255, 255, 255, 0.18);
 }
 
-a.totop{
-	bottom: 0;
-	position: fixed;
-	right: 30px;
-	display: block;
-	font-family: 'icons';
-	font-size: 1.5em;
-	z-index: 30;
-	padding: 10px 20px;
-	text-decoration: none;
-	margin: -1.66667em auto 0;
-	float: right;
-	color: #fff;
-	background-color: rgba(209, 26, 54, 0.92);
-	border-radius: 12px 12px 0 0;
-	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
-	text-align: right;
-}
-
 @media screen and (max-width: 768px) {
 	.footerContainer{
 		padding: 18px 16px;
@@ -236,9 +217,4 @@ a.totop{
 		font-size: 0.95rem;
 	}
 
-	a.totop{
-		right: 15px;
-		font-size: 0.75em;
-		z-index: 15;
-	}
 }

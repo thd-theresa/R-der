@@ -593,6 +593,26 @@ p{
 	margin: 10px 0 15px 0;
 	line-height:1.6em;
 }
+
+a.totop{
+	bottom: 0;
+	position: fixed;
+	right: 30px;
+	z-index: 9;
+	display: block;
+	font-family: 'icons';
+	font-size: 1.5em;
+	z-index: 30;
+	padding: 10px 20px;
+	text-decoration: none;
+	margin: -1.66667em auto 0;
+	float: right;
+	color: #fff;
+	background-color: rgba(209, 26, 54, 0.92);
+	border-radius: 12px 12px 0 0;
+	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+	text-align: right;
+}
 .imprint{ 
 	font-size:23px;
 	margin: 30px 125px;
@@ -725,6 +745,12 @@ input[type="submit"]:disabled {
 		font-size: 19px;
 		margin: 25px 20px;
 		padding: 20px;
+	}
+
+	a.totop{
+		right: 15px;
+		font-size:  0.75em;
+		z-index: 15;
 	}
 	
 }
