@@ -1,0 +1,186 @@
+/* Theresa
+Footer, with contact, link to social media, opening hours and contact information, as well as link to the imprint and data protection, a button to get back to the top*/
+.footerContainer{
+	float: left;
+	width: 25.33%;
+	padding: 24px 20px;
+	text-align: left;
+	position: relative;
+	border-radius: 16px;
+	background: linear-gradient(145deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+	box-shadow: 0 14px 28px rgba(0, 0, 0, 0.35);
+	backdrop-filter: blur(2px);
+}
+
+.footer{
+	background: radial-gradient(circle at top, rgba(209, 26, 54, 0.14), #000 45%);
+	color: white;
+}
+
+#footer .container{
+	margin: 0 auto;
+	max-width: 1460px;
+	width: 100%;
+	padding: 0;
+}
+
+#footer{
+	border-top: 4px solid var(--red-primary);
+	border-top-left-radius: 16px;
+	border-top-right-radius: 16px;
+}
+
+#footer h4 {
+	margin: 0 0 14px 0;
+	padding-bottom: 8px;
+	font-size: 23px;
+	letter-spacing: 0.01em;
+	border-bottom: 2px solid rgba(209, 26, 54, 0.65);
+}
+
+#footer b {
+	font-weight: 600;
+}
+
+#footer .footerContainer br + b,
+#footer .footerContainer > b {
+	line-height: 1.7;
+}
+
+#footer iframe{ /* google maps Karte*/
+	max-width:100%;
+}
+
+.fa{
+	padding: 12px;
+	font-size: 24px;
+	width: 42px;
+	height: 42px;
+	text-align: center;
+	text-decoration: none;
+	margin: 0 8px 0 0;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px;
+	border: 1px solid rgba(255, 255, 255, 0.22);
+	transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.fa:hover{
+	opacity: 1;
+	transform: translateY(-2px);
+	border-color: var(--red-primary);
+	box-shadow: 0 8px 18px rgba(209, 26, 54, 0.3);
+}
+
+.fa-facebook{
+	background:transparent;
+	color: white;
+}
+
+.fa-instagram{
+	background: transparent;
+	color: white;
+}
+
+#footer div.container{
+	max-width: 1460px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 18px;
+	padding: 28px 20px 16px;
+	box-sizing: border-box;
+}
+
+#footer .social {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin-top: 10px;
+}
+
+#footer #map iframe {
+	border-radius: 12px;
+	border: 1px solid rgba(255, 255, 255, 0.18);
+	box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+}
+
+footer ul{
+	float: left;
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+footer ul li{
+	display: block;
+	float: left;
+	margin: 0;
+	padding: 0;
+}
+
+footer ul li a{
+	display: block;
+	padding: 10px 30px;
+	color: white;
+	float: left;
+}
+
+#copyright{
+	float: left;
+	width: 100%;
+	margin: 18px 0 0;
+	padding: 20px 5% 8px;
+	position: relative;
+	color: #e2e2e2;
+	font-size: 0.9em;
+	text-align: center;
+	border-top: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+#copyright a{
+	color: #e2e2e2;
+	text-decoration: none;
+}
+
+#copyright a:hover{
+	color: #fff;
+	text-decoration: underline;
+}
+
+@media screen and (max-width: 768px) {
+	.footerContainer{
+		padding: 18px 16px;
+		width: 100%;
+		border-radius: 12px;
+	}
+
+	#footer .container{
+		max-width:730px;
+	}
+
+	.fa{
+		padding: 8px;
+		font-size: 15px;
+		width: 34px;
+		height: 34px;
+		margin: 2.5px 1px;
+	}
+
+	#footer div.container{
+		max-width: 730px;
+		padding: 18px 14px 10px;
+		gap: 12px;
+	}
+
+	#footer h4 {
+		font-size: 20px;
+	}
+
+}
