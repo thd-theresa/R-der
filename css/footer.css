@@ -17,7 +17,7 @@ Footer, with contact, link to social media, opening hours and contact informatio
 	color: white;
 }
 
-.container{
+#footer .container{
 	margin: 0 auto;
 	max-width: 1460px;
 	width: 100%;
@@ -47,7 +47,7 @@ Footer, with contact, link to social media, opening hours and contact informatio
 	line-height: 1.7;
 }
 
-iframe{ /* google maps Karte*/
+#footer iframe{ /* google maps Karte*/
 	max-width:100%;
 }
 
@@ -210,7 +210,7 @@ a.totop{
 		border-radius: 12px;
 	}
 
-	.container{
+	#footer .container{
 		max-width:730px;
 	}
 
