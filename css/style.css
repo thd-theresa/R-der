@@ -745,6 +745,10 @@ input, textarea {
 	text-decoration: underline;
 }
 
+.privacy-consent-text {
+	display: block;
+}
+
 input[type="submit"] {
 	background-color: var(--red-primary);
 	color: #fff;
