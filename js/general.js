@@ -1,6 +1,6 @@
 // Sophie
 // Selects navigation items and defines an offset for smooth scrolling behavior
-const navItems = document.querySelectorAll(".nav-item");
+const navItems = document.querySelectorAll("[data-target]");
 const offset = 50;
 
 // Adds click event listeners to navigation items for smooth scrolling and menu closure
@@ -79,8 +79,8 @@ function change() {
         return;
     }
 
-	reservationStart.style.display = "none";
-	reservationDataCustomer.style.display = "block";
+    reservationStart.style.display = "none";
+    reservationDataCustomer.style.display = "block";
 }
 
 
@@ -92,7 +92,7 @@ if (reservationForm) {
 }
 
 function sendSwitch(event){
-	event.preventDefault();
+    event.preventDefault();
     const reservationDataCustomer = document.getElementById("reservationDataCustomer");
     const successfulReservation = document.getElementById("successfulReservation");
     const reservationsSection = document.getElementById("nav-reservations");
@@ -101,9 +101,9 @@ function sendSwitch(event){
         return;
     }
 
-	reservationDataCustomer.style.display = "none";
-	successfulReservation.style.display = "block";
-	reservationsSection.scrollIntoView({ behavior: 'smooth' });
+    reservationDataCustomer.style.display = "none";
+    successfulReservation.style.display = "block";
+    reservationsSection.scrollIntoView({ behavior: 'smooth' });
 }
 
 /* Kontaktformular */
@@ -137,7 +137,7 @@ if (contactForm) {
             contactStart.style.display = "none";
             contactSuccess.style.display = "block";
         }
-		delete contactForm.dataset.fallbackSubmitted;
+        delete contactForm.dataset.fallbackSubmitted;
         setContactStatus("", null);
         contactSection?.scrollIntoView({ behavior: "smooth" });
     };
@@ -170,11 +170,11 @@ if (contactForm) {
                 ? await response.json()
                 : null;
 
-             if (!response.ok) {
+            if (!response.ok) {
                 throw new Error(`FormSubmit request failed (status ${response.status})`);
             }
 
-			   if (result && Object.prototype.hasOwnProperty.call(result, "success")) {
+            if (result && Object.prototype.hasOwnProperty.call(result, "success")) {
                 // FormSubmit may return success as boolean or as string depending on endpoint behavior.
                 const isSuccess = result.success === true || result.success === "true";
                 if (!isSuccess) {
@@ -187,7 +187,7 @@ if (contactForm) {
         } catch (error) {
             console.error("Kontaktformular konnte nicht gesendet werden:", error);
             setContactStatus("⚠️ Fehler: Die Nachricht konnte gerade nicht gesendet werden. Bitte versuchen Sie es in Kürze erneut.", "contact-status-error");
-			  const isFetchFailure =
+            const isFetchFailure =
                 error instanceof TypeError ||
                 error?.name === "AbortError" ||
                 error?.name === "NetworkError";
@@ -208,65 +208,65 @@ if (contactForm) {
 
 /*GALERIE - Hannah*/
 document.addEventListener("DOMContentLoaded", function () {
-  const track = document.getElementById("galleryTrack");
-  const prevBtn = document.getElementById("galleryPrev");
-  const nextBtn = document.getElementById("galleryNext");
+    const track = document.getElementById("galleryTrack");
+    const prevBtn = document.getElementById("galleryPrev");
+    const nextBtn = document.getElementById("galleryNext");
 
-  if (!track || !prevBtn || !nextBtn) return;
+    if (!track || !prevBtn || !nextBtn) return;
 
-  const images = track.querySelectorAll(".gallery-image");
-  let currentIndex = 0;
+    const images = track.querySelectorAll(".gallery-image");
+    let currentIndex = 0;
 
-  function getVisibleCount() {
-    if (window.innerWidth <= 768) return 1;
-    if (window.innerWidth <= 1100) return 2;
-    return 3;
-  }
+    function getVisibleCount() {
+        if (window.innerWidth <= 768) return 1;
+        if (window.innerWidth <= 1100) return 2;
+        return 3;
+    }
 
-  function getStep() {
-    const imageWidth = images[0].getBoundingClientRect().width;
-    const gap = 16;
-    return imageWidth + gap;
-  }
+    function getStep() {
+        const imageWidth = images[0].getBoundingClientRect().width;
+        const gap = 16;
+        return imageWidth + gap;
+    }
 
-  function updateButtons() {
-    const visibleCount = getVisibleCount();
-    const maxIndex = Math.max(images.length - visibleCount, 0);
+    function updateButtons() {
+        const visibleCount = getVisibleCount();
+        const maxIndex = Math.max(images.length - visibleCount, 0);
 
-    prevBtn.disabled = currentIndex === 0;
-    nextBtn.disabled = currentIndex >= maxIndex;
+        prevBtn.disabled = currentIndex === 0;
+        nextBtn.disabled = currentIndex >= maxIndex;
 
-    prevBtn.style.opacity = prevBtn.disabled ? "0.4" : "1";
-    nextBtn.style.opacity = nextBtn.disabled ? "0.4" : "1";
-    prevBtn.style.pointerEvents = prevBtn.disabled ? "none" : "auto";
-    nextBtn.style.pointerEvents = nextBtn.disabled ? "none" : "auto";
-  }
+        prevBtn.style.opacity = prevBtn.disabled ? "0.4" : "1";
+        nextBtn.style.opacity = nextBtn.disabled ? "0.4" : "1";
+        prevBtn.style.pointerEvents = prevBtn.disabled ? "none" : "auto";
+        nextBtn.style.pointerEvents = nextBtn.disabled ? "none" : "auto";
+    }
 
-  function updateTrack() {
-    const step = getStep();
-    track.style.transform = `translateX(-${currentIndex * step}px)`;
-    updateButtons();
-  }
+    function updateTrack() {
+        const step = getStep();
+        track.style.transform = `translateX(-${currentIndex * step}px)`;
+        updateButtons();
+    }
 
-  prevBtn.addEventListener("click", function () {
-    const visibleCount = getVisibleCount();
-    currentIndex = Math.max(currentIndex - visibleCount, 0);
+    prevBtn.addEventListener("click", function () {
+        const visibleCount = getVisibleCount();
+        currentIndex = Math.max(currentIndex - visibleCount, 0);
+        updateTrack();
+    });
+
+    nextBtn.addEventListener("click", function () {
+        const visibleCount = getVisibleCount();
+        const maxIndex = Math.max(images.length - visibleCount, 0);
+        currentIndex = Math.min(currentIndex + visibleCount, maxIndex);
+        updateTrack();
+    });
+
+    window.addEventListener("resize", function () {
+        const visibleCount = getVisibleCount();
+        const maxIndex = Math.max(images.length - visibleCount, 0);
+        currentIndex = Math.min(currentIndex, maxIndex);
+        updateTrack();
+    });
+
     updateTrack();
-  });
-
-  nextBtn.addEventListener("click", function () {
-    const visibleCount = getVisibleCount();
-    const maxIndex = Math.max(images.length - visibleCount, 0);
-    currentIndex = Math.min(currentIndex + visibleCount, maxIndex);
-    updateTrack();
-  });
-
-  window.addEventListener("resize", function () {
-    const visibleCount = getVisibleCount();
-    const maxIndex = Math.max(images.length - visibleCount, 0);
-    currentIndex = Math.min(currentIndex, maxIndex);
-    updateTrack();
-  });
-
-  updateTrack();
 });
