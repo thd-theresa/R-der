@@ -745,8 +745,18 @@ input, textarea {
 	text-decoration: underline;
 }
 
-.privacy-consent-text {
-	display: block;
+.privacy-consent-list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.privacy-consent-list li {
+	display: list-item;
+	text-align: left;
+	word-spacing: normal;
+	margin-bottom: 4px;
+	line-height: 1.5;
 }
 
 input[type="submit"] {
