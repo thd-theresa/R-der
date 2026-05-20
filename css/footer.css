@@ -88,6 +88,7 @@ Footer, with contact, link to social media, opening hours and contact informatio
 	max-width: 1460px;
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: center;
 	gap: 18px;
 	padding: 28px 20px 16px;
 	box-sizing: border-box;
@@ -181,6 +182,16 @@ footer ul li a{
 	font-size: 0.9em;
 	text-align: center;
 	border-top: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+#copyright a{
+	color: #e2e2e2;
+	text-decoration: none;
+}
+
+#copyright a:hover{
+	color: #fff;
+	text-decoration: underline;
 }
 
 @media screen and (max-width: 768px) {
