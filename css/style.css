@@ -170,7 +170,78 @@ button, input, textarea, select {
   }
 
 
-/* Pfeil */
+/* Kontaktformular-Seite */
+#contact-section {
+	padding-top: 80px;
+	min-height: calc(100vh - 80px);
+}
+
+
+.btn-contact {
+	display: inline-block;
+	background-color: var(--red-primary);
+	color: #fff;
+	padding: 14px 32px;
+	border-radius: 50px;
+	font-size: 1.05rem;
+	font-weight: 600;
+	text-decoration: none;
+	margin-top: 18px;
+	pointer-events: all;
+	transition: background-color 0.25s ease, transform 0.2s ease;
+	letter-spacing: 0.02em;
+}
+
+.btn-contact:hover {
+	background-color: var(--red-hover);
+	color: #fff;
+	transform: scale(1.04);
+}
+
+.contact-teaser-section {
+	padding: 40px 20px 70px;
+}
+
+.contact-teaser-box {
+	max-width: 900px;
+	margin: 0 auto;
+	padding: 36px 28px;
+	text-align: center;
+	border: 3px solid var(--red-primary);
+	border-radius: 20px;
+	background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.015));
+	box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+.contact-teaser-box p {
+	font-size: 1.1rem;
+	color: #e8e8e8;
+	margin: 14px 0 24px;
+	line-height: 1.6;
+}
+
+@media screen and (max-width: 768px) {
+	.btn-contact {
+		font-size: 0.95rem;
+		padding: 12px 26px;
+	}
+
+	.contact-teaser-section {
+		padding: 24px 14px 50px;
+	}
+
+	.contact-teaser-box {
+		padding: 24px 16px;
+	}
+
+	.contact-teaser-box p {
+		font-size: 1rem;
+		margin: 12px 0 20px;
+		line-height: 1.5;
+	}
+}
+
+
 .scroll-arrow {
   display: inline-block;
   margin-right: 8px;
@@ -503,7 +574,7 @@ With "display: none" and javascript, the animation of switching contents is acco
 	font-size: 23px;
 	margin: 100px;
 	padding: 40px;
-	border-color: #AE9A64;
+	border-color: var(--red-primary);
     border-width: 5px;
     border-style: solid;
 }
@@ -536,7 +607,7 @@ With "display: none" and javascript, the animation of switching contents is acco
 	font-size: 23px;
 	margin: 100px;
 	padding: 40px;
-	border-color: #AE9A64;
+	border-color: var(--red-primary);
 	border-width: 5px;
 	border-style: solid;
 }
@@ -619,7 +690,7 @@ input, textarea {
 }
 
 input[type="submit"] {
-	background-color: #AE9A64;
+	background-color: var(--red-primary);
 	color: #fff;
 	border: none;
 	cursor: pointer;
@@ -628,7 +699,7 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-	background-color: #343a40;
+	background-color: var(--red-hover);
 }
 
 .message {
