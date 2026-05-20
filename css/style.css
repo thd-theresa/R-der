@@ -170,7 +170,42 @@ button, input, textarea, select {
   }
 
 
-/* Pfeil */
+/* Kontaktformular-Seite */
+#contact-section {
+	padding-top: 80px;
+	min-height: calc(100vh - 80px);
+}
+
+
+.btn-contact {
+	display: inline-block;
+	background-color: var(--red-primary);
+	color: #fff;
+	padding: 14px 32px;
+	border-radius: 50px;
+	font-size: 1.05rem;
+	font-weight: 600;
+	text-decoration: none;
+	margin-top: 18px;
+	pointer-events: all;
+	transition: background-color 0.25s ease, transform 0.2s ease;
+	letter-spacing: 0.02em;
+}
+
+.btn-contact:hover {
+	background-color: var(--red-hover);
+	color: #fff;
+	transform: scale(1.04);
+}
+
+@media screen and (max-width: 768px) {
+	.btn-contact {
+		font-size: 0.95rem;
+		padding: 12px 26px;
+	}
+}
+
+
 .scroll-arrow {
   display: inline-block;
   margin-right: 8px;
@@ -503,7 +538,7 @@ With "display: none" and javascript, the animation of switching contents is acco
 	font-size: 23px;
 	margin: 100px;
 	padding: 40px;
-	border-color: #AE9A64;
+	border-color: var(--red-primary);
     border-width: 5px;
     border-style: solid;
 }
@@ -536,7 +571,7 @@ With "display: none" and javascript, the animation of switching contents is acco
 	font-size: 23px;
 	margin: 100px;
 	padding: 40px;
-	border-color: #AE9A64;
+	border-color: var(--red-primary);
 	border-width: 5px;
 	border-style: solid;
 }
@@ -619,7 +654,7 @@ input, textarea {
 }
 
 input[type="submit"] {
-	background-color: #AE9A64;
+	background-color: var(--red-primary);
 	color: #fff;
 	border: none;
 	cursor: pointer;
@@ -628,7 +663,7 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-	background-color: #343a40;
+	background-color: var(--red-hover);
 }
 
 .message {
