@@ -187,7 +187,6 @@ a.totop{
 	bottom: 0;
 	position: fixed;
 	right: 30px;
-	z-index: 9;
 	display: block;
 	font-family: 'icons';
 	font-size: 1.5em;
