@@ -1,207 +1,264 @@
 <!DOCTYPE html>
 <html lang="de" xmlns:data-icon="http://www.w3.org/1999/xhtml">
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Räderwerk</title>
-		<link rel="preconnect" href="https://fonts.googleapis.com">
 
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-		<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&display=swap" rel="stylesheet">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Räderwerk</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
 
-		<link rel="icon" href="./images/Logo.png" sizes="any">
-		<link rel="stylesheet" type="text/css" href="css/style.css">
-		<link rel="stylesheet" type="text/css" href="css/footer.css">
-		<link rel="stylesheet" type="text/css" href="css/navigation.css">
-		<script src="js/general.js" defer></script>
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&display=swap" rel="stylesheet">
 
-		<link rel="preload" as="image" href="./images/gal1.jpeg">
-		<link rel="preload" as="image" href="./images/gal2.jpeg">
-		<link rel="preload" as="image" href="./images/gal3.jpeg">
-		<link rel="preload" as="image" href="./images/gal4.jpeg">
-		<link rel="preload" as="image" href="./images/gal5.jpeg">
-		<link rel="preload" as="image" href="./images/gal6.jpeg">
-		<link rel="preload" as="image" href="./images/gal7.jpeg">
-		<link rel="preload" as="image" href="./images/gal8.jpeg">
-		<link rel="preload" as="image" href="./images/gal9.jpeg">
-		<link rel="preload" as="image" href="./images/gal10.jpeg">
-	</head>
-	<body>
-		<!-- Sophie: navigation -->
-		<div class="topnav">
-    		<nav id="topnav">
-       			<nav id="big"> <!--navigation when the screen is big -->
-          		  	<span class="nav-item" data-target="aboutUs">Über uns</span>
-         		   	<span class="nav-item" data-target="food">Speisekarte</span>
-         		   	<span class="nav-item" data-target="start">
-         		      		<div class="logo-container">
-              		    	  		<img src="./images/logo_transparent.png" alt="Elysian Logo">
-            				</div>
-         		   	</span>
-		            	<a href="contact.html" class="nav-link">Kontaktformular</a>
-		            	<span class="nav-item" data-target="nav-footer">Kontakt</span>
-			</nav>        
-        		<nav id="small"> <!--navigation when the screen is small -->
-         	   		<div class="hamburger" id="hamburger"> <!--hamburgermenu (three lines) -->
-             		   		<div></div>
-             		   		<div></div>
-             		   		<div></div>
-          	  		</div>
-            
-         	   		<div class="menu-overlay" id="menu-overlay"></div> 
-           				 <span class="nav-item" data-target="start">
-            		    			<div class="logo-box">
-                  		  			<img src="./images/logo_transparent.png" alt="Elysian Logo">
-               		    			</div>
-         				</span>
-                
-            			<ul class="menu" id="menu">
-              	  			<li class="close-btn" id="close-menu">✕</li>
-              	  			<li><span class="nav-item" data-target="aboutUs">Über uns</span></li>
-              	  			<li><span class="nav-item" data-target="food">Speisekarte</span></li>
-               				<li><a href="contact.html" class="nav-link">Kontaktformular</a></li>
-               				<li><span class="nav-item" data-target="nav-footer">Kontakt</span></li>
-            			</ul>
-       		 	</nav>    
-   		</nav>
-		</div>
+	<link rel="icon" href="./images/Logo.png" sizes="any">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/navigation.css">
+	<link rel="stylesheet" type="text/css" href="css/footer.css">
+	<script src="js/general.js" defer></script>
 
+	<link rel="preload" as="image" href="./images/gal1.jpeg">
+	<link rel="preload" as="image" href="./images/gal2.jpeg">
+	<link rel="preload" as="image" href="./images/gal3.jpeg">
+	<link rel="preload" as="image" href="./images/gal4.jpeg">
+	<link rel="preload" as="image" href="./images/gal5.jpeg">
+	<link rel="preload" as="image" href="./images/gal6.jpeg">
+	<link rel="preload" as="image" href="./images/gal7.jpeg">
+	<link rel="preload" as="image" href="./images/gal8.jpeg">
+	<link rel="preload" as="image" href="./images/gal9.jpeg">
+	<link rel="preload" as="image" href="./images/gal10.jpeg">
+</head>
 
+<body>
+	<!-- Sophie: navigation -->
+	<div class="topnav">
+		<nav id="topnav">
+			<nav id="big"> <!--navigation when the screen is big -->
 
-
-
-		<!-- Hannah: videocontent for first view of website -->
-		<div id="firstView">
-			<video width="100%" autoplay muted loop playsinline preload="auto" id="Vid1">
-				<source src="./images/video-tire.mp4" type="video/mp4">
-			</video>
-
-			<div class="firstview-overlay" aria-hidden="false">
-				<h1>FELGEN · REIFEN · TUNING</h1>
-				<p>  Scrollen, um mehr zu erfahren <span class="scroll-arrow">↓ </span></p>
-			</div>
-		</div>
-
-		
-		<!-- Hannah: Über uns, Leistungen und Galerie -->
-		<div id="secondView">
-			<section id="aboutUs"> 
-				<h1>Über mich</h1>
-				<div class="about-grid">
-					<div class="textAboutUs">
-						<br>
-						<b>WILLKOMMEN BEI RÄDERWERK LISTL!</b>
-						<br><br>
-						Seit einigen Jahren dreht sich bei mir alles um Räder, Reifen und Fahrwerke –
-						und das mit echter Leidenschaft! Mir ist wichtig, dass Sie sich auf ehrlichen Service und
-						professionelle Arbeit verlassen können. Ob Reifenwechsel, Einlagerung, neue Felgen oder
-						individuelle Beratung: Ich nehme mir Zeit für Ihr Anliegen und finde gemeinsam mit Ihnen
-						die beste Lösung für Ihr Fahrzeug.
-						<br><br>
-						<b>Ich freue mich darauf, Sie und Ihr Auto bei mir im Räderwerk begrüßen zu dürfen!</b>
-						<br><br>
+				<span class="nav-item" data-target="aboutUs">Über mich</span>
+				<span class="nav-item" data-target="leistungen">Meine Leistungen</span>
+				<span class="nav-item" data-target="start">
+					<div class="logo-container">
+						<img src="./images/Räderwerk-Logo.png" alt="Räderwerk Logo">
 					</div>
-					<div class = "imagesAboutUs"> <!-- self presentation images -->
-						<img src="./images/auto-rot.jpeg" alt="Rotes Auto" class="imageAboutUs">
-					</div>
+				</span>
+				<span class="nav-item" data-target="galerie">Galerie</span>
+				<span class="nav-item" data-target="nav-footer">Kontakt</span>
+			</nav>
+			<nav id="small"> <!--navigation when the screen is small -->
+				<div class="hamburger" id="hamburger"> <!--hamburgermenu (three lines) -->
+					<div></div>
+					<div></div>
+					<div></div>
 				</div>
-			</section>
-			
-			<section id="leistungen">
-				<h1>Meine Leistungen</h1>
-				<div class="leistungen-grid">
-					<div class="leistung-card">
-						<h3>REIFENWECHSEL</h3>
-						<p>Schnell, sauber und fachgerecht für alle Fahrzeuge.</p>
-					</div>
-					<div class="leistung-card">
-						<h3>REIFEN WASCHEN UND EINLAGERN</h3>
-						<p>Professionelle Reinigung und sichere Einlagerung Ihrer Reifen.</p>
-					</div>
-					<div class="leistung-card">
-						<h3>REIFEN- UND FELGENHANDEL</h3>
-						<p>Große Auswahl an passenden Reifen und Felgen.</p>
-					</div>
-					<div class="leistung-card">
-						<h3>BERATUNG ZU RAD- UND FAHRWERKSLÖSUNGEN</h3>
-						<p>Individuelle Beratung für optimale Performance und Optik.</p>
-					</div>
-					<div class="leistung-card">
-						<h3>TEILEHANDEL</h3>
-						<p>Speziell Tuning-Teile für ein sportlicheres Fahrzeug.</p>
-					</div>
-				</div>
-			</section>
 
-			<section id="galerie">
-				<h1>Galerie</h1>
-				<div class="gallery-wrapper">
-					<button class="gallery-arrow gallery-prev" id="galleryPrev" aria-label="Vorherige Bilder">❮</button>
-
-					<div class="gallery-viewport">
-						<div class="gallery-track" id="galleryTrack">
-							<img src="./images/gal1.jpeg" alt="Galerie Bild 1" class="gallery-image" loading="eager">
-							<img src="./images/gal2.jpeg" alt="Galerie Bild 2" class="gallery-image" loading="eager">
-							<img src="./images/gal3.jpeg" alt="Galerie Bild 3" class="gallery-image" loading="eager">
-							<img src="./images/gal4.jpeg" alt="Galerie Bild 4" class="gallery-image" loading="eager">
-							<img src="./images/gal5.jpeg" alt="Galerie Bild 5" class="gallery-image" loading="eager">
-							<img src="./images/gal6.jpeg" alt="Galerie Bild 6" class="gallery-image" loading="eager">
-							<img src="./images/gal7.jpeg" alt="Galerie Bild 7" class="gallery-image" loading="eager">
-							<img src="./images/gal8.jpeg" alt="Galerie Bild 8" class="gallery-image" loading="eager">
-							<img src="./images/gal9.jpeg" alt="Galerie Bild 9" class="gallery-image" loading="eager">
-							<img src="./images/gal10.jpeg" alt="Galerie Bild 10" class="gallery-image" loading="eager">
-						</div>
+				<div class="menu-overlay" id="menu-overlay"></div>
+				<span class="nav-item" data-target="start">
+					<div class="logo-box">
+						<img src="./images/Räderwerk-Logo.png" alt="Räderwerk Logo">
 					</div>
+				</span>
 
-					<button class="gallery-arrow gallery-next" id="galleryNext" aria-label="Nächste Bilder">❯</button>
-				</div>
-			</section>
+				<ul class="menu" id="menu">
+					<li class="close-btn" id="close-menu">✕</li>
+					<li><span class="nav-item" data-target="aboutUs">Über mich</span></li>
+					<li><span class="nav-item" data-target="leistungen">Meine Leistungen</span></li>
+					<li><span class="nav-item" data-target="galerie">Galerie</span></li>
+					<li><span class="nav-item" data-target="nav-footer">Kontakt</span></li>
+				</ul>
+			</nav>
+		</nav>
+	</div>
+
+	<section id="start">
+	</section>
+
+
+	<!-- Hannah: videocontent for first view of website -->
+	<div id="firstView">
+		<video width="100%" autoplay muted loop playsinline preload="auto" id="Vid1">
+			<source src="./images/video-tire.mp4" type="video/mp4">
+		</video>
+
+		<div class="firstview-overlay" aria-hidden="false">
+			<h1>FELGEN · REIFEN · TUNING</h1>
+			<p> Scrollen, um mehr zu erfahren <span class="scroll-arrow">↓ </span></p>
 		</div>
+	</div>
 
-		<!-- Kontakt-Teaser mit Verweis auf eigene Kontaktseite -->
-		<section id="nav-reservations">
-			<div id = "contactStart"> 
-				<h1>Kontaktformular</h1>
-				<p>Für Anfragen nutzen Sie bitte unser Kontaktformular auf der separaten Seite.</p>
-				<a href="contact.html" class="contact-link-button">Zum Kontaktformular</a>
+
+	<!-- Hannah: Über uns, Leistungen und Galerie -->
+	<div id="secondView">
+		<section id="aboutUs">
+			<h1>Über mich</h1>
+			<div class="about-grid">
+				<div class="textAboutUs">
+					<br>
+					<b>WILLKOMMEN BEI RÄDERWERK LISTL!</b>
+					<br><br>
+					Seit einigen Jahren dreht sich bei mir alles um Räder, Reifen und Fahrwerke –
+					und das mit echter Leidenschaft! Mir ist wichtig, dass Sie sich auf ehrlichen Service und
+					professionelle Arbeit verlassen können. Ob Reifenwechsel, Einlagerung, neue Felgen oder
+					individuelle Beratung: Ich nehme mir Zeit für Ihr Anliegen und finde gemeinsam mit Ihnen
+					die beste Lösung für Ihr Fahrzeug.
+					<br><br>
+					<b>Ich freue mich darauf, Sie und Ihr Auto bei mir im Räderwerk begrüßen zu dürfen!</b>
+					<br><br>
+				</div>
+				<div class="imagesAboutUs"> <!-- self presentation images -->
+					<img src="./images/auto-rot.jpeg" alt="Rotes Auto" class="imageAboutUs">
+				</div>
 			</div>
 		</section>
-		<!-- Theresa: Footer -->
-		<div id="footer" class = "footer">
-		<section id="nav-footer"> 
-			<div class = "container">
-				 <!-- First Footer Section - Contact Information and social media-->
-				<div class = "footerContainer" data-icon: &#9990>
-					<br> <b><h4>Kontakt</h4><br> Tel.: 0123/45678<br> E-Mail: Elysian@elysian.de </b> <br> <br>
+
+		<section id="leistungen">
+			<h1>Meine Leistungen</h1>
+			<div class="leistungen-grid">
+				<div class="leistung-card">
+					<h3>REIFENWECHSEL</h3>
+					<p>Schnell, sauber und fachgerecht für alle Fahrzeuge.</p>
+				</div>
+				<div class="leistung-card">
+					<h3>REIFEN WASCHEN UND EINLAGERN</h3>
+					<p>Professionelle Reinigung und sichere Einlagerung Ihrer Reifen.</p>
+				</div>
+				<div class="leistung-card">
+					<h3>REIFEN- UND FELGENHANDEL</h3>
+					<p>Große Auswahl an passenden Reifen und Felgen.</p>
+				</div>
+				<div class="leistung-card">
+					<h3>BERATUNG ZU RAD- UND FAHRWERKSLÖSUNGEN</h3>
+					<p>Individuelle Beratung für optimale Performance und Optik.</p>
+				</div>
+				<div class="leistung-card">
+					<h3>TEILEHANDEL</h3>
+					<p>Speziell Tuning-Teile für ein sportlicheres Fahrzeug.</p>
+				</div>
+			</div>
+		</section>
+
+		<section id="galerie">
+			<h1>Galerie</h1>
+			<div class="gallery-wrapper">
+				<button class="gallery-arrow gallery-prev" id="galleryPrev" aria-label="Vorherige Bilder">❮</button>
+
+				<div class="gallery-viewport">
+					<div class="gallery-track" id="galleryTrack">
+						<img src="./images/gal1.jpeg" alt="Galerie Bild 1" class="gallery-image" loading="eager">
+						<img src="./images/gal2.jpeg" alt="Galerie Bild 2" class="gallery-image" loading="eager">
+						<img src="./images/gal3.jpeg" alt="Galerie Bild 3" class="gallery-image" loading="eager">
+						<img src="./images/gal4.jpeg" alt="Galerie Bild 4" class="gallery-image" loading="eager">
+						<img src="./images/gal5.jpeg" alt="Galerie Bild 5" class="gallery-image" loading="eager">
+						<img src="./images/gal6.jpeg" alt="Galerie Bild 6" class="gallery-image" loading="eager">
+						<img src="./images/gal7.jpeg" alt="Galerie Bild 7" class="gallery-image" loading="eager">
+						<img src="./images/gal8.jpeg" alt="Galerie Bild 8" class="gallery-image" loading="eager">
+						<img src="./images/gal9.jpeg" alt="Galerie Bild 9" class="gallery-image" loading="eager">
+						<img src="./images/gal10.jpeg" alt="Galerie Bild 10" class="gallery-image" loading="eager">
+					</div>
+				</div>
+
+				<button class="gallery-arrow gallery-next" id="galleryNext" aria-label="Nächste Bilder">❯</button>
+			</div>
+		</section>
+	</div>
+
+	<!-- Terminbuchung - Pop-Up -->
+	<!-- Koalendar Popup Widget Start -->
+	<script>window.Koalendar = window.Koalendar || function () { (Koalendar.props = Koalendar.props || []).push(arguments) };</script>
+	<script async src="https://koalendar.com/assets/widget.js"></script>
+	<script>
+		Koalendar('widget', {
+			"url": "https://koalendar.com/e/termin-reifenwechsel",
+			"text": "Reifenwechsel buchen",
+			"shape": "rounded-full",
+			"backgroundColor": "#D11A36",
+			"textColor": "#FFFFFF",
+			"position": "bottom-right",
+			"icon": "calendar"
+		});
+	</script>
+	<!-- Koalendar Popup Widget End -->
+
+	<!-- Manuel+Hannah: Reservationform started by buttonclick and submitted with buttonclick -->
+	<section id="nav-reservations">
+		<div id="reservationStart">
+			<h1>Kontaktformular</h1>
+			<form id="contactForm" action="sendContact" method="post">
+				<label for="name">Name:</label>
+				<input type="text" id="name" name="name" required><br><br>
+
+				<label for="email">E-Mail:</label>
+				<input type="email" id="email" name="email" required><br><br>
+
+				<label for="phone">Telefonnummer (optional):</label>
+				<input type="tel" id="phone" name="phone"><br><br>
+
+				<label for="subject">Betreff:</label>
+				<input type="text" id="subject" name="subject" required><br><br>
+
+				<label for="message">Nachricht:</label>
+				<textarea id="message" name="message" rows="4" cols="50" required></textarea><br><br>
+
+				<input type="submit" value="Nachricht senden">
+			</form>
+		</div>
+		<div id="successfulReservation">
+			<h1>Vielen Dank!</h1>
+			<br><b>Ihre Kontaktanfrage wurde erfolgreich gesendet!</b><br>
+			<br><b>Ihre Anfrage wird schnellstmöglich bearbeitet.</b><br> </div>
+	</section>
+	<!-- Theresa: Footer -->
+	<div id="footer" class="footer">
+		<section id="nav-footer">
+			<div class="container">
+				<!-- First Footer Section - Contact Information and social media-->
+
+				<div class="footerContainer">
+					<h4>Kontakt</h4>
+					<p><strong>Tel.:</strong> 0170/5574967<br><strong>E-Mail:</strong> <a href="mailto:info@raederwerk-listl.de">info@raederwerk-listl.de</a></p>
 					<h4>Social Media</h4>
-					<div class= " social">
-					<a href = "https://de-de.facebook.com/"  class="fa fa-facebook"> <img src="./images/fb.png"></a>
-					<a href = "https://www.instagram.com/"  class="fa fa-instagram"> <img src="./images/insta 50.png"></a>
+					<div class="social">
+						<a href="https://de-de.facebook.com/" class="fa fa-facebook"><img src="./images/fb.png" alt="Facebook"></a>
+						<a href="https://www.instagram.com/" class="fa fa-instagram"><img src="./images/insta 50.png" alt="Instagram"></a>
 					</div>
 				</div>
-				 <!-- Second Footer Section - Opening Hours -->
-				<div class= "footerContainer">
-					<br><b><h4>Öffungszeiten</h4><br>Montag: Ruhetag<br> Dienstag: Ruhetag<br> Mittwoch: 17.00 Uhr - 22.00 Uhr<br> Donnerstag: 17.00 Uhr - 22.00 Uhr
-					<br> Freitag: 17.00 Uhr - 00.00 Uhr<br> Samstag: 11.00 Uhr - 00.00 Uhr<br> Sonntag: 11.00 Uhr - 22.00 Uhr</b>
-				</div>
-				 <!-- Third Footer Section - Address and Map -->
-				<div class = "footerContainer">
-					<br><b> <h4>Anfahrt</h4><br> Elysianweg 1 <br> 99999 Elysian<br></b>
-					<div id = "map">
-						<br>
-						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2626.503516622399!2d12.952012776584207!3d48.8295336713283!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4775119871ad94ef%3A0x64e9bac6691ed449!2sTechnische%20Hochschule%20Deggendorf!5e0!3m2!1sde!2sde!4v1736242440107!5m2!1sde!2sde" width="200" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-						
+				<!-- Second Footer Section - Opening Hours -->
+				<div class="footerContainer">
+					<h4>Öffnungszeiten</h4>
+					<div class="opening-hours">
+						<div class="opening-row"><span class="opening-day">Montag</span><span class="opening-time">	15.00 Uhr - 19.00 Uhr</span></div>
+						<div class="opening-row"><span class="opening-day">Dienstag</span><span class="opening-time">	17.00 Uhr - 19.00 Uhr</span></div>
+						<div class="opening-row"><span class="opening-day">Mittwoch</span><span class="opening-time">	17.00 Uhr - 19.00 Uhr</span></div>
+						<div class="opening-row"><span class="opening-day">Donnerstag</span><span class="opening-time">	17.00 Uhr - 19.00 Uhr</span></div>
+						<div class="opening-row"><span class="opening-day">Freitag</span><span class="opening-time">	08.00 Uhr - 18.00 Uhr</span></div>
+						<div class="opening-row"><span class="opening-day">Samstag</span><span class="opening-time">	08.00 Uhr - 12.00 Uhr</span></div>
+						<div class="opening-row"><span class="opening-day">Sonntag</span><span class="opening-time"> 	Geschlossen</span></div>
 					</div>
 				</div>
-				<p id= "copyright">
-					<span class = "copy">Copyright Ⓒ Elysian</span>
-					 | by MSHT | <a href = "imprint.html" title= "Impressum">Impressum</a> | <a href= "dataProtection.html">Datenschutz</a>
+				<!-- Third Footer Section - Address and Map -->
+				<div class="footerContainer">
+					<h4>Anfahrt</h4>
+					<p>Am Ziegelweiher 44<br>94344 Wiesenfelden</p>
+					<div id="map">
+						<iframe
+							src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2626.503516622399!2d12.952012776584207!3d48.8295336713283!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4775119871ad94ef%3A0x64e9bac6691ed449!2sTechnische%20Hochschule%20Deggendorf!5e0!3m2!1sde!2sde!4v1736242440107!5m2!1sde!2sde"
+							width="200" height="200" style="border:0;" allowfullscreen="" loading="lazy"
+							referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+					</div>
+				</div>
+
+				<p id="copyright">
+					<span class="copy">Copyright Ⓒ Elysian</span>
+					| by MMSHT | <a href = "imprint.html" title= "Impressum">Impressum</a> | <a href= "dataProtection.html">Datenschutz</a>
 				</p>
-			<a class= "totop" title="Nach oben" href= "https://thd-manuel.github.io/elysian/" style = " display: block; "  >▲</a>
+				<a class="totop" data-target="start" title="Nach oben">▲</a>
 			</div>
 		</section>
-		</div>
-	</body>
+	</div>
+</body>
+
 </html>
+
