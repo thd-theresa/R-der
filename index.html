@@ -39,7 +39,7 @@
               		    	  		<img src="./images/logo_transparent.png" alt="Elysian Logo">
             				</div>
          		   	</span>
-		            	<span class="nav-item" data-target="nav-reservations">Reservierungen</span>
+		            	<a href="contact.html" class="nav-link">Kontaktformular</a>
 		            	<span class="nav-item" data-target="nav-footer">Kontakt</span>
 			</nav>        
         		<nav id="small"> <!--navigation when the screen is small -->
@@ -60,7 +60,7 @@
               	  			<li class="close-btn" id="close-menu">✕</li>
               	  			<li><span class="nav-item" data-target="aboutUs">Über uns</span></li>
               	  			<li><span class="nav-item" data-target="food">Speisekarte</span></li>
-               				<li><span class="nav-item" data-target="nav-reservations">Reservierungen</span></li>
+               				<li><a href="contact.html" class="nav-link">Kontaktformular</a></li>
                				<li><span class="nav-item" data-target="nav-footer">Kontakt</span></li>
             			</ul>
        		 	</nav>    
@@ -159,39 +159,12 @@
 			</section>
 		</div>
 
-		<!-- Manuel+Hannah: Reservationform started by buttonclick and submitted with buttonclick -->
+		<!-- Kontakt-Teaser mit Verweis auf eigene Kontaktseite -->
 		<section id="nav-reservations">
 			<div id = "contactStart"> 
-			<h1>Kontaktformular</h1>
-				<form id="contactForm" action="https://formsubmit.co/theresa.zurl@stud.th-deg.de" method="post">
-					<input type="hidden" name="_captcha" value="false">
-					<input type="hidden" name="_template" value="table">
-					<input type="hidden" name="_subject" value="Neue Kontaktanfrage über Räderwerk">
-					<input type="hidden" name="_replyto" id="contact_replyto" value="">
-					<input type="hidden" name="_autoresponse" value="Vielen Dank für Ihre Kontaktanfrage beim Räderwerk. Wir haben Ihre Nachricht erhalten und beantworten Ihre Anfrage schnellstmöglich.">
-					<label for="name">Name:</label>
-					<input type="text" id="name" name="name" required><br><br>
-
-					<label for="email">E-Mail:</label>
-					<input type="email" id="email" name="email" required><br><br>
-					<label for="phone">Telefonnummer (optional):</label>
-					<input type="tel" id="phone" name="phone"><br><br>
-
-					<label for="subject">Betreff:</label>
-					<input type="text" id="subject" name="subject" required><br><br>
-	
-					<label for="message">Nachricht:</label>
-					<textarea id="message" name="message" rows="4" cols="50" required></textarea><br><br>
-	
-					<input type="submit" id="contactSubmit" value="Nachricht senden">
-					<p id="contactStatus" aria-live="polite"></p>
-				</form>
-			</div>
-			<div id = "contactSuccess">
-				<h1>Vielen Dank!</h1>
-				<br><b>Danke für Ihre Anfrage.</b><br>
-				<br><b>Ihre Kontaktanfrage wurde erfolgreich gesendet!</b><br>
-				<br><b>Ihre Anfrage wird schnellstmöglich bearbeitet.</b><br>
+				<h1>Kontaktformular</h1>
+				<p>Für Anfragen nutzen Sie bitte unser Kontaktformular auf der separaten Seite.</p>
+				<a href="contact.html" class="contact-link-button">Zum Kontaktformular</a>
 			</div>
 		</section>
 		<!-- Theresa: Footer -->
