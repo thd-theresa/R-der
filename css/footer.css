@@ -107,46 +107,6 @@ Footer, with contact, link to social media, opening hours and contact informatio
 	box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
 }
 
-.footnav{
-	float: left;
-	width: 100%;
-	color: white;
-	text-align: center;
-	margin-top: 8px;
-}
-
-#footer .footnav ul{
-	margin: 0;
-	padding: 0;
-	list-style-type: none;
-	width: 100%;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	gap: 10px;
-}
-
-#footer .footnav li{
-	display: block;
-	margin: 0;
-	word-spacing: normal;
-}
-
-#footer .footnav a{
-	display: inline-block;
-	padding: 8px 18px;
-	border-radius: 999px;
-	border: 1px solid rgba(255, 255, 255, 0.24);
-	color: white;
-	transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
-}
-
-#footer .footnav a:hover{
-	background-color: rgba(209, 26, 54, 0.2);
-	border-color: var(--red-primary);
-	transform: translateY(-1px);
-}
-
 footer ul{
 	float: left;
 	margin: 0;
@@ -221,11 +181,6 @@ footer ul li a{
 
 	#footer h4 {
 		font-size: 20px;
-	}
-
-	#footer .footnav a {
-		padding: 7px 14px;
-		font-size: 0.95rem;
 	}
 
 }
