@@ -702,14 +702,6 @@ input[type="submit"]:hover {
 	background-color: var(--red-hover);
 }
 
-#contactSubmit {
-	background-color: var(--red-primary);
-}
-
-#contactSubmit:hover {
-	background-color: var(--red-hover);
-}
-
 .message {
 	display: none;
 	margin-top: 20px;
